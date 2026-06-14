@@ -1,8 +1,6 @@
 # BankManager Pro
 
-A desktop banking management system built with JavaFX and SQLite for the Java Programming final exam at SUPMTI Rabat.
-
-**Student:** Moustapha Amouchal | **Group:** ISI-A | **Year:** 2025/2026
+A desktop banking management system built with JavaFX and SQLite for the Java Programming.
 
 ---
 
