@@ -266,5 +266,3 @@ cp src/main/resources/com/banking/database/schema.sql schema.sql
 ```
 
 ---
-
-*SUPMTI Rabat | Programmation Java | 2025/2026 | Pr. Soufiane HAMIDA*
