@@ -19,6 +19,11 @@ public enum AccountType {
         return displayName;
     }
 
+    /**
+     * Returns the French display name, used automatically by JavaFX ComboBox cells.
+     *
+     * @return the display name string
+     */
     @Override
     public String toString() {
         return displayName;

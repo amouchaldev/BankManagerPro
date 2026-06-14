@@ -18,6 +18,9 @@ public class DatabaseManager {
     private static DatabaseManager instance;
     private Connection connection;
 
+    /** Injected test connection — when set, getInstance() wraps it instead of opening banking.db. */
+    private static Connection testConnection = null;
+
     private DatabaseManager() throws SQLException {
         connection = DriverManager.getConnection(DB_URL);
         try (Statement st = connection.createStatement()) {
@@ -27,6 +30,11 @@ public class DatabaseManager {
         initializeSchema();
     }
 
+    /** Constructor used in test mode — wraps an existing connection, skips schema.sql. */
+    private DatabaseManager(Connection conn) {
+        this.connection = conn;
+    }
+
     /**
      * Returns the singleton instance. Creates it on first call.
      *
@@ -34,10 +42,37 @@ public class DatabaseManager {
      * @throws SQLException if the connection or schema initialization fails
      */
     public static synchronized DatabaseManager getInstance() throws SQLException {
+        if (testConnection != null) {
+            // Unit-test mode: wrap the injected connection without touching banking.db
+            if (instance == null) {
+                instance = new DatabaseManager(testConnection);
+            }
+            return instance;
+        }
         if (instance == null || instance.connection.isClosed()) {
             instance = new DatabaseManager();
         }
         return instance;
+    }
+
+    /**
+     * Injects an external connection for use in unit tests.
+     * Call {@link #clearTestConnection()} in {@code @AfterAll} to clean up.
+     *
+     * @param conn the test JDBC connection (typically an in-memory SQLite connection)
+     */
+    public static synchronized void setTestConnection(Connection conn) {
+        testConnection = conn;
+        instance = null;  // force re-creation with the test connection
+    }
+
+    /**
+     * Removes the injected test connection and resets the singleton.
+     * Should be called in {@code @AfterAll} after each test class.
+     */
+    public static synchronized void clearTestConnection() {
+        testConnection = null;
+        instance = null;
     }
 
     /**
