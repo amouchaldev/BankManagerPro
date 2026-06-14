@@ -32,12 +32,14 @@ The app has four main sections:
 ## Project structure
 
 ```
-mini-projet-java/
-├── pom.xml
-├── banking.db                        # created automatically on first run
+mini-project-java/
 ├── rapport_bankmanager.pdf           # project report
 ├── screenshots/                      # app screenshots
-└── src/
+└── app/                              # main application folder
+    ├── pom.xml
+    ├── banking.db                    # created automatically on first run
+    ├── README.md
+    └── src/
     ├── main/
     │   ├── java/com/banking/
     │   │   ├── BankingApplication.java       # entry point
@@ -98,10 +100,10 @@ If you have Git:
 
 ```bash
 git clone git@github.com:amouchaldev/BankManagerPro.git
-cd mini-projet-java
+cd mini-project-java/app
 ```
 
-Or just download and extract the ZIP, then open a terminal in the project folder.
+Or just download and extract the ZIP, then open a terminal inside the `app/` folder.
 
 ### 2. Check your Java version
 
@@ -228,14 +230,14 @@ Make sure you are using `mvn javafx:run` and not `java -jar`. JavaFX requires sp
 
 **"banking.db" permission error**
 
-The database file is created in the current working directory when you run Maven. Make sure you run the command from inside the project folder.
+The database file is created in the current working directory when you run Maven. Make sure you run the command from inside the `app/` folder, not the parent `mini-project-java/` folder.
 
 **Maven not found**
 
 If `mvn` is not recognized, use the full path to the Maven binary you downloaded. For example:
 
 ```bash
-/Users/yourname/apache-maven-3.9.6/bin/mvn javafx:run
+/Users/AMC/apache-maven-3.9.6/bin/mvn javafx:run
 ```
 
 **Slow first start**
@@ -249,18 +251,20 @@ The first run downloads JavaFX and SQLite JARs from Maven Central (~60 MB total)
 The ZIP archive should contain:
 
 ```
-mini-projet-java.zip
-├── src/                    # full source code
-├── pom.xml                 # Maven build file
-├── schema.sql              # copy of the database schema
-├── rapport_bankmanager.pdf # project report with screenshots
-└── README.md               # this file
+mini-project-java.zip
+├── rapport_bankmanager.pdf           # project report with screenshots
+├── screenshots/                      # app screenshots
+└── app/
+    ├── src/                          # full source code
+    ├── pom.xml                       # Maven build file
+    ├── README.md                     # this file
+    └── schema.sql                    # copy of the database schema
 ```
 
-To copy the schema to the project root for easy access:
+To copy the schema into the `app/` folder for easy access:
 
 ```bash
-cp src/main/resources/com/banking/database/schema.sql schema.sql
+cp app/src/main/resources/com/banking/database/schema.sql app/schema.sql
 ```
 
 ---
