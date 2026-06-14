@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.banking.controller.AccountController"
+      spacing="16" styleClass="page-container">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <!-- Toolbar -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Gestion des Comptes" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="cbFilterClient" promptText="Tous les clients" prefWidth="170"/>
+        <ComboBox fx:id="cbTypeFilter"   promptText="Tous les types"   prefWidth="150"/>
+        <Button fx:id="btnAdd" text="+ Nouveau compte" styleClass="btn-primary" onAction="#handleAdd"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="tblAccounts" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"            text="ID"          prefWidth="45"/>
+            <TableColumn fx:id="colAccountNumber" text="N° Compte"   prefWidth="140"/>
+            <TableColumn fx:id="colClientName"    text="Client"      prefWidth="150"/>
+            <TableColumn fx:id="colType"          text="Type"        prefWidth="120"/>
+            <TableColumn fx:id="colBalance"       text="Solde"       prefWidth="110"/>
+            <TableColumn fx:id="colOverdraft"     text="Découvert"   prefWidth="95"/>
+            <TableColumn fx:id="colRate"          text="Taux"        prefWidth="70"/>
+            <TableColumn fx:id="colStatus"        text="Statut"      prefWidth="75"/>
+            <TableColumn fx:id="colOpenedAt"      text="Ouverture"   prefWidth="100"/>
+        </columns>
+        <placeholder><Label text="Aucun compte trouvé"/></placeholder>
+    </TableView>
+
+    <!-- Action buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="btnToggleActive" text="⏸  Activer/Désactiver" styleClass="btn-secondary" onAction="#handleToggleActive"/>
+        <Button fx:id="btnEdit"         text="✏  Modifier"            styleClass="btn-secondary" onAction="#handleEdit"/>
+        <Button fx:id="btnDelete"       text="🗑  Supprimer"           styleClass="btn-danger"    onAction="#handleDelete"/>
+    </HBox>
+
+</VBox>

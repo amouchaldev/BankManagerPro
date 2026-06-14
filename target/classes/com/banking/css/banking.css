@@ -1,0 +1,352 @@
+/* ===================================================
+   BankManager Pro — Main Stylesheet
+   =================================================== */
+
+.root {
+    -fx-font-family: "Helvetica Neue", "Segoe UI", "Arial", sans-serif;
+    -fx-background-color: #f1f5f9;
+}
+
+/* ===================================================
+   SIDEBAR
+   =================================================== */
+
+.sidebar {
+    -fx-background-color: #065f46;
+    -fx-padding: 0;
+}
+
+.brand-header {
+    -fx-padding: 24 20 16 20;
+    -fx-background-color: #064e3b;
+}
+
+.brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #6ee7b7;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+
+.sidebar-separator {
+    -fx-background-color: #047857;
+    -fx-padding: 0 0 1 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a7f3d0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 14 20 14 20;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.nav-button:hover {
+    -fx-background-color: #047857;
+    -fx-text-fill: white;
+}
+
+.nav-button.active {
+    -fx-background-color: #10b981;
+    -fx-text-fill: white;
+}
+
+.sidebar-footer {
+    -fx-text-fill: #6ee7b7;
+    -fx-font-size: 11px;
+    -fx-padding: 12 20 16 20;
+}
+
+/* ===================================================
+   CONTENT AREA
+   =================================================== */
+
+.content-area {
+    -fx-background-color: #f1f5f9;
+}
+
+.page-container {
+    -fx-background-color: #f1f5f9;
+}
+
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+/* ===================================================
+   STAT CARDS (Dashboard)
+   =================================================== */
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);
+    -fx-padding: 20 20 20 20;
+    -fx-spacing: 8;
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.stat-value-small {
+    -fx-font-size: 20px;
+}
+
+.stat-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.5px;
+}
+
+/* ===================================================
+   CHART CARD
+   =================================================== */
+
+.chart-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);
+    -fx-padding: 16;
+}
+
+/* ===================================================
+   BUTTONS
+   =================================================== */
+
+.btn-primary {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #15803d;
+}
+
+.btn-success {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.btn-success:hover {
+    -fx-background-color: #15803d;
+}
+
+.btn-danger {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.btn-info {
+    -fx-background-color: #0891b2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.btn-info:hover {
+    -fx-background-color: #0e7490;
+}
+
+.btn-secondary {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #334155;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #cbd5e1;
+}
+
+/* Disabled state */
+.btn-secondary:disabled,
+.btn-danger:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ===================================================
+   TABLE VIEW
+   =================================================== */
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2);
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #dcfce7;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f8fafc;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #1e293b;
+}
+
+/* ===================================================
+   FORM FIELDS
+   =================================================== */
+
+.search-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-background-color: white;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+}
+
+.search-field:focused {
+    -fx-border-color: #16a34a;
+}
+
+/* ===================================================
+   FILTER BAR
+   =================================================== */
+
+.filter-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 1);
+}
+
+/* ===================================================
+   CHART STYLING
+   =================================================== */
+
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: #fafafa;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e2e8f0;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #16a34a;
+    -fx-stroke-width: 2.5px;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #16a34a, white;
+    -fx-background-radius: 4px;
+}
+
+/* ===================================================
+   COMBOBOX
+   =================================================== */
+
+.combo-box {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-background-color: white;
+}
+
+.combo-box:focused {
+    -fx-border-color: #16a34a;
+}
+
+/* ===================================================
+   DATE PICKER
+   =================================================== */
+
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+/* ===================================================
+   DIALOG
+   =================================================== */
+
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f8fafc;
+}

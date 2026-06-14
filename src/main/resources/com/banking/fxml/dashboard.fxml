@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.banking.controller.DashboardController"
+      spacing="20" styleClass="page-container">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <!-- Page title -->
+    <Label text="Tableau de Bord" styleClass="page-title"/>
+
+    <!-- Stat cards row -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Clients" styleClass="stat-label"/>
+            <Label fx:id="lblTotalClients" text="—" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Comptes actifs" styleClass="stat-label"/>
+            <Label fx:id="lblTotalAccounts" text="—" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Actifs gérés" styleClass="stat-label"/>
+            <Label fx:id="lblTotalAssets" text="—" styleClass="stat-value stat-value-small"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Volume ce mois" styleClass="stat-label"/>
+            <Label fx:id="lblMonthlyVolume" text="—" styleClass="stat-value stat-value-small"/>
+        </VBox>
+    </HBox>
+
+    <!-- Chart + recent transactions -->
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Balance history chart (left, 60%) -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-card">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Historique de solde" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="cbChartAccount" promptText="Sélectionner un compte"/>
+            </HBox>
+            <LineChart fx:id="balanceChart" VBox.vgrow="ALWAYS" animated="false"
+                       createSymbols="true" legendVisible="false">
+                <xAxis><CategoryAxis fx:id="xAxis" label="Date"/></xAxis>
+                <yAxis><NumberAxis fx:id="yAxis" label="Solde (€)"/></yAxis>
+            </LineChart>
+        </VBox>
+
+        <!-- Recent transactions (right, 40%) -->
+        <VBox spacing="10" prefWidth="380" styleClass="chart-card">
+            <Label text="10 dernières transactions" styleClass="section-title"/>
+            <TableView fx:id="tblRecentTransactions" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colDate"        text="Date"        prefWidth="110"/>
+                    <TableColumn fx:id="colType"        text="Type"        prefWidth="80"/>
+                    <TableColumn fx:id="colAmount"      text="Montant"     prefWidth="90"/>
+                    <TableColumn fx:id="colDescription" text="Description" prefWidth="90"/>
+                </columns>
+                <placeholder><Label text="Aucune transaction"/></placeholder>
+            </TableView>
+        </VBox>
+
+    </HBox>
+</VBox>

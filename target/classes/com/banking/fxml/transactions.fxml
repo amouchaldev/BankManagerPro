@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.banking.controller.TransactionController"
+      spacing="16" styleClass="page-container">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <!-- Page title -->
+    <Label text="Gestion des Transactions" styleClass="page-title"/>
+
+    <!-- Action buttons row -->
+    <HBox spacing="12">
+        <Button fx:id="btnDeposit"  text="⬆  Dépôt"    styleClass="btn-success" onAction="#handleDeposit"  prefWidth="140"/>
+        <Button fx:id="btnWithdraw" text="⬇  Retrait"   styleClass="btn-danger"  onAction="#handleWithdraw" prefWidth="140"/>
+        <Button fx:id="btnTransfer" text="⇄  Virement"  styleClass="btn-info"    onAction="#handleTransfer" prefWidth="140"/>
+    </HBox>
+
+    <!-- Filter toolbar -->
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="filter-bar">
+        <Label text="Filtres :"/>
+        <ComboBox fx:id="cbTypeFilter"    promptText="Type"   prefWidth="140"/>
+        <ComboBox fx:id="cbAccountFilter" promptText="Compte" prefWidth="170"/>
+        <Label text="Du :"/>
+        <DatePicker fx:id="dpFrom" promptText="Date début" prefWidth="140"/>
+        <Label text="Au :"/>
+        <DatePicker fx:id="dpTo"   promptText="Date fin"   prefWidth="140"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Effacer filtres" styleClass="btn-secondary" onAction="#handleClearFilters"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="tblTransactions" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"          text="ID"            prefWidth="45"/>
+            <TableColumn fx:id="colDate"        text="Date"          prefWidth="140"/>
+            <TableColumn fx:id="colType"        text="Type"          prefWidth="100"/>
+            <TableColumn fx:id="colSource"      text="Compte source" prefWidth="140"/>
+            <TableColumn fx:id="colTarget"      text="Compte cible"  prefWidth="140"/>
+            <TableColumn fx:id="colAmount"      text="Montant"       prefWidth="110"/>
+            <TableColumn fx:id="colDescription" text="Description"   prefWidth="200"/>
+        </columns>
+        <placeholder><Label text="Aucune transaction trouvée"/></placeholder>
+    </TableView>
+
+</VBox>

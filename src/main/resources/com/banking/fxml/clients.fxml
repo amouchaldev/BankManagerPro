@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.banking.controller.ClientController"
+      spacing="16" styleClass="page-container">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <!-- Toolbar -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Gestion des Clients" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="txtSearch" promptText="🔍  Rechercher..." prefWidth="220" styleClass="search-field"/>
+        <Button fx:id="btnAdd" text="+ Nouveau client" styleClass="btn-primary" onAction="#handleAdd"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="tblClients" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"        text="ID"         prefWidth="50"/>
+            <TableColumn fx:id="colFirstName" text="Prénom"     prefWidth="130"/>
+            <TableColumn fx:id="colLastName"  text="Nom"        prefWidth="130"/>
+            <TableColumn fx:id="colEmail"     text="Email"      prefWidth="220"/>
+            <TableColumn fx:id="colPhone"     text="Téléphone"  prefWidth="130"/>
+            <TableColumn fx:id="colCreatedAt" text="Inscription" prefWidth="120"/>
+        </columns>
+        <placeholder><Label text="Aucun client trouvé"/></placeholder>
+    </TableView>
+
+    <!-- Action toolbar below table -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="btnEdit"   text="✏  Modifier"   styleClass="btn-secondary" onAction="#handleEdit"/>
+        <Button fx:id="btnDelete" text="🗑  Supprimer"  styleClass="btn-danger"   onAction="#handleDelete"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.banking.controller.MainController"
+            prefWidth="1200" prefHeight="750"
+            styleClass="root-pane">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="210" spacing="0">
+            <!-- Brand header -->
+            <VBox styleClass="brand-header" spacing="4">
+                <Label text="🏦 BankManager" styleClass="brand-title"/>
+                <Label text="Pro" styleClass="brand-subtitle"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <!-- Navigation buttons -->
+            <Button fx:id="btnDashboard"    text="  Tableau de bord"  styleClass="nav-button" maxWidth="Infinity" onAction="#handleDashboard"/>
+            <Button fx:id="btnClients"      text="  Clients"           styleClass="nav-button" maxWidth="Infinity" onAction="#handleClients"/>
+            <Button fx:id="btnAccounts"     text="  Comptes"           styleClass="nav-button" maxWidth="Infinity" onAction="#handleAccounts"/>
+            <Button fx:id="btnTransactions" text="  Transactions"      styleClass="nav-button" maxWidth="Infinity" onAction="#handleTransactions"/>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator styleClass="sidebar-separator"/>
+            <Label text="v1.0 · Juin 2026" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT AREA -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+</BorderPane>
