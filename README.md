@@ -97,7 +97,7 @@ You do not need to install SQLite separately. The JDBC driver is included as a M
 If you have Git:
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:amouchaldev/BankManagerPro.git
 cd mini-projet-java
 ```
 
